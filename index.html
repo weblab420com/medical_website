@@ -16,6 +16,76 @@
             background: #f8fafc;
             color: #1a202c;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Watermark for dashboard slides - Checkerboard pattern */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: 
+                url('logo_weblab.svg.svg') 0 0,
+                url('logo_weblab.svg.svg') 80px 80px;
+            background-size: 160px 160px;
+            background-repeat: repeat;
+            opacity: 0.025;
+            z-index: 0;
+            pointer-events: none;
+            transform: rotate(-15deg);
+            transform-origin: center;
+        }
+
+        /* Ensure content is above watermark */
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Ensure tables and containers are above watermark */
+        .table-container,
+        .stats-grid,
+        .phase-grid,
+        .deliverables,
+        .highlight-box,
+        .sprint-list {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Special watermark for sprint headers - Checkerboard pattern */
+        .slide.sprint-header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: 
+                url('logo_weblab.svg.svg') 0 0,
+                url('logo_weblab.svg.svg') 80px 80px;
+            background-size: 160px 160px;
+            background-repeat: repeat;
+            opacity: 0.025;
+            z-index: 0;
+            pointer-events: none;
+            transform: rotate(-15deg);
+            transform-origin: center;
+        }
+
+        /* Enhanced watermark for gradient slides - Checkerboard pattern */
+        .slide.gradient-main::before,
+        .slide.gradient-team::before,
+        .slide.gradient-overview::before {
+            opacity: 0.04;
+            background: 
+                url('logo_weblab.svg.svg') 0 0,
+                url('logo_weblab.svg.svg') 85px 85px;
+            background-size: 170px 170px;
+            background-repeat: repeat;
         }
 
         .presentation-container {
@@ -437,7 +507,7 @@
         
         <!-- Dashboard Navigation -->
         <div class="slide large gradient-main">
-            <h1>Medical Website Development Roadmap</h1>
+            <h1>WordPress Website Development Roadmap</h1>
             <div class="deliverables">
                 <div class="deliverable-item">📊 Project Overview & Team Rates</div>
                 <div class="deliverable-item">🚀 6 Sprint Detailed Breakdowns</div>
@@ -581,7 +651,7 @@
                             <td class="task-cell">QA Tester</td>
                             <td class="rate-cell">$30</td>
                             <td class="specialist-cell">per hour</td>
-                            <td>30 hours</td>
+                            <td>82 hours</td>
                             <td class="cost-cell">$900</td>
                         </tr>
                     </tbody>
@@ -677,789 +747,6 @@
             </div>
         </div>
 
-        <!-- Sprint 1 Full Tasks -->
-        <div class="slide extra-large">
-            <h2>Sprint 1: Complete Task List</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Task</th>
-                            <th>Description</th>
-                            <th>Specialist</th>
-                            <th>Hours</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="task-cell">Project Kickoff & Requirements</td>
-                            <td class="description-cell">Define goals, audience, technical requirements</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>3.0</td>
-                            <td class="cost-cell">$105</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="task-cell">Market & Audience Research</td>
-                            <td class="description-cell">Research personas, competitors, pain points</td>
-                            <td class="specialist-cell">Marketing Specialist</td>
-                            <td>15.0</td>
-                            <td class="cost-cell">$450</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="task-cell">Keyword Research & Semantic Mapping</td>
-                            <td class="description-cell">Map keywords to intent (800+ keywords)</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>15.0</td>
-                            <td class="cost-cell">$525</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="task-cell">Content Technical Specification</td>
-                            <td class="description-cell">Define structure, tone, keywords (35 pages)</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>15.0</td>
-                            <td class="cost-cell">$525</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="task-cell">Medical Content Guidelines Setup</td>
-                            <td class="description-cell">Coordinate with expert, document standards</td>
-                            <td class="specialist-cell">Content Manager</td>
-                            <td>6.0</td>
-                            <td class="cost-cell">$180</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="task-cell">General Content Strategy</td>
-                            <td class="description-cell">Define tone, structure, modular approach</td>
-                            <td class="specialist-cell">Content Manager</td>
-                            <td>8.0</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="task-cell">Website Technical Architecture</td>
-                            <td class="description-cell">Features, sitemap, CMS requirements</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>8.0</td>
-                            <td class="cost-cell">$280</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="task-cell">Brand Book & UI Kit Design</td>
-                            <td class="description-cell">Typography, colors, component library</td>
-                            <td class="specialist-cell">UI/UX Designer</td>
-                            <td>35.0</td>
-                            <td class="cost-cell">$1,400</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="task-cell">Technical Infrastructure Setup</td>
-                            <td class="description-cell">Hosting, domain, basic WP install, SSL</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>4.0</td>
-                            <td class="cost-cell">$120</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="task-cell">Security Foundation</td>
-                            <td class="description-cell">Basic security setup and user roles</td>
-                            <td class="specialist-cell">Cybersecurity Specialist</td>
-                            <td>2.0</td>
-                            <td class="cost-cell">$130</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="task-cell">Project Documentation Setup</td>
-                            <td class="description-cell">Create tracking systems and workflows</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>1.0</td>
-                            <td class="cost-cell">$35</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Sprint 2 Header -->
-        <div class="slide large sprint-header gradient-sprint2">
-            <h1>SPRINT 2<br><span style="font-size: 0.6em;">Design & Content Framework</span></h1>
-        </div>
-
-        <!-- Sprint 2 Overview -->
-        <div class="slide">
-            <h2>Sprint 2: Design & Content Framework</h2>
-            <h3>Duration: 2 weeks | Cost: $4,283</h3>
-            <div class="highlight-box">
-                <h3>Goal</h3>
-                <p>Create your website's look and feel, get client approval, and start writing the first batch of content.</p>
-            </div>
-            <div class="deliverables">
-                <div class="deliverable-item">✓ Homepage design approved and 3 key page templates ready</div>
-                <div class="deliverable-item">✓ First 7,000 words of content written and reviewed</div>
-                <div class="deliverable-item">✓ WordPress structure set up with all necessary plugins</div>
-                <div class="deliverable-item">✓ Content plan and reusable blocks defined</div>
-            </div>
-        </div>
-
-        <!-- Sprint 2 Full Tasks -->
-        <div class="slide extra-large">
-            <h2>Sprint 2: Complete Task List</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Task</th>
-                            <th>Description</th>
-                            <th>Specialist</th>
-                            <th>Volume</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="task-cell">Sprint Coordination</td>
-                            <td class="description-cell">Manage design approval process</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>6.0h</td>
-                            <td class="cost-cell">$210</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="task-cell">Design Concepts Development</td>
-                            <td class="description-cell">Create 3 homepage concepts + navigation</td>
-                            <td class="specialist-cell">UI/UX Designer</td>
-                            <td>20.0h</td>
-                            <td class="cost-cell">$800</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="task-cell">Client Design Review & Approval</td>
-                            <td class="description-cell">Present concepts, gather feedback, revise</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>4.0h</td>
-                            <td class="cost-cell">$140</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="task-cell">Key Templates Design (3 templates)</td>
-                            <td class="description-cell">Homepage, service page, content page</td>
-                            <td class="specialist-cell">UI/UX Designer</td>
-                            <td>24.0h</td>
-                            <td class="cost-cell">$960</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="task-cell">Content Matrix & Modular Planning</td>
-                            <td class="description-cell">Plan reusable blocks and page structure</td>
-                            <td class="specialist-cell">Content Manager</td>
-                            <td>8.0h</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="task-cell">WordPress Structure Setup</td>
-                            <td class="description-cell">Pages, categories, user roles, plugins</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>6.0h</td>
-                            <td class="cost-cell">$180</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="task-cell">General Content Creation (Batch 1)</td>
-                            <td class="description-cell">High-priority pages content</td>
-                            <td class="specialist-cell">Content Writer</td>
-                            <td>4,500 words</td>
-                            <td class="cost-cell">$360</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="task-cell">Medical Content Creation (Batch 1)</td>
-                            <td class="description-cell">Core medical pages content</td>
-                            <td class="specialist-cell">Medical Content Writer</td>
-                            <td>2,500 words</td>
-                            <td class="cost-cell">$625</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="task-cell">Content Review & Quality Check</td>
-                            <td class="description-cell">Review content for brand consistency</td>
-                            <td class="specialist-cell">Content Manager</td>
-                            <td>6.0h</td>
-                            <td class="cost-cell">$180</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="task-cell">SEO Plugin Configuration</td>
-                            <td class="description-cell">Configure SEO plugin & global templates</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>7.0h</td>
-                            <td class="cost-cell">$245</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="task-cell">Basic Form Setup</td>
-                            <td class="description-cell">Contact form configuration</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>4.0h</td>
-                            <td class="cost-cell">$120</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td class="task-cell">Design System Documentation</td>
-                            <td class="description-cell">Document components and usage rules</td>
-                            <td class="specialist-cell">UI/UX Designer</td>
-                            <td>6.0h</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>13</td>
-                            <td class="task-cell">Sprint Review & Buffer</td>
-                            <td class="description-cell">Handle revisions and unexpected issues</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>1.0h</td>
-                            <td class="cost-cell">$35</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Sprint 3 Header -->
-        <div class="slide large sprint-header gradient-sprint3">
-            <h1>SPRINT 3<br><span style="font-size: 0.6em;">Template Development</span></h1>
-        </div>
-
-        <!-- Sprint 3 Overview -->
-        <div class="slide">
-            <h2>Sprint 3: Template Development & Content Scale</h2>
-            <h3>Duration: 2.5 weeks | Cost: $4,765</h3>
-            <div class="highlight-box">
-                <h3>Goal</h3>
-                <p>Build all website pages and create most of your content so the site starts looking complete.</p>
-            </div>
-            <div class="deliverables">
-                <div class="deliverable-item">✓ All 9 page templates built and working on mobile/desktop</div>
-                <div class="deliverable-item">✓ 14,000 more words written (21,000 total out of 28,000)</div>
-                <div class="deliverable-item">✓ Headers, footers, and navigation fully functional</div>
-                <div class="deliverable-item">✓ Everything tested across different browsers and devices</div>
-            </div>
-        </div>
-
-        <!-- Sprint 3 Full Tasks -->
-        <div class="slide extra-large">
-            <h2>Sprint 3: Complete Task List</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Task</th>
-                            <th>Description</th>
-                            <th>Specialist</th>
-                            <th>Volume</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="task-cell">Sprint Coordination</td>
-                            <td class="description-cell">Manage development and content workflows</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>8.0h</td>
-                            <td class="cost-cell">$280</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="task-cell">Remaining Templates Design (6 templates)</td>
-                            <td class="description-cell">Complete all page template designs</td>
-                            <td class="specialist-cell">UI/UX Designer</td>
-                            <td>30.0h</td>
-                            <td class="cost-cell">$1,200</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="task-cell">WordPress Template Development</td>
-                            <td class="description-cell">Convert designs to functional templates</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>28.0h</td>
-                            <td class="cost-cell">$840</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="task-cell">Header/Footer System Development</td>
-                            <td class="description-cell">Dynamic header/footer with variations</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>8.0h</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="task-cell">Responsive Design Implementation</td>
-                            <td class="description-cell">Mobile/tablet optimization for all templates</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>12.0h</td>
-                            <td class="cost-cell">$360</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="task-cell">General Content Creation (Batch 2)</td>
-                            <td class="description-cell">Continue general content production</td>
-                            <td class="specialist-cell">Content Writer</td>
-                            <td>9,000 words</td>
-                            <td class="cost-cell">$720</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="task-cell">Medical Content Creation (Batch 2)</td>
-                            <td class="description-cell">Continue medical content production</td>
-                            <td class="specialist-cell">Medical Content Writer</td>
-                            <td>5,000 words</td>
-                            <td class="cost-cell">$1,250</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="task-cell">Metadata Assignment & Featured Images</td>
-                            <td class="description-cell">SEO titles, descriptions, image setup</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>7.0h</td>
-                            <td class="cost-cell">$245</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="task-cell">Cross-browser Testing</td>
-                            <td class="description-cell">Test templates across browsers/devices</td>
-                            <td class="specialist-cell">QA Tester</td>
-                            <td>8.0h</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="task-cell">Content Integration Testing</td>
-                            <td class="description-cell">Test content insertion and formatting</td>
-                            <td class="specialist-cell">QA Tester</td>
-                            <td>4.0h</td>
-                            <td class="cost-cell">$120</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="task-cell">Client Review Coordination</td>
-                            <td class="description-cell">Coordinate template and content feedback</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>3.0h</td>
-                            <td class="cost-cell">$105</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td class="task-cell">Revision Buffer</td>
-                            <td class="description-cell">Handle design and content revisions</td>
-                            <td class="specialist-cell">UI/UX Designer</td>
-                            <td>4.0h</td>
-                            <td class="cost-cell">$160</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Sprint 4 Header -->
-        <div class="slide large sprint-header gradient-sprint4">
-            <h1>SPRINT 4<br><span style="font-size: 0.6em;">Content Completion</span></h1>
-        </div>
-
-        <!-- Sprint 4 Overview -->
-        <div class="slide">
-            <h2>Sprint 4: Content Completion & Integration</h2>
-            <h3>Duration: 2 weeks | Cost: $3,027</h3>
-            <div class="highlight-box">
-                <h3>Goal</h3>
-                <p>Finish writing all content and put everything together so your website is content-complete.</p>
-            </div>
-            <div class="deliverables">
-                <div class="deliverable-item">✓ All 28,000 words of content written and inserted</div>
-                <div class="deliverable-item">✓ Contact forms working with proper validation</div>
-                <div class="deliverable-item">✓ All images optimized with proper descriptions</div>
-                <div class="deliverable-item">✓ Medical content reviewed by experts for accuracy</div>
-            </div>
-        </div>
-
-        <!-- Sprint 4 Full Tasks -->
-        <div class="slide extra-large">
-            <h2>Sprint 4: Complete Task List</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Task</th>
-                            <th>Description</th>
-                            <th>Specialist</th>
-                            <th>Volume</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="task-cell">Sprint Coordination</td>
-                            <td class="description-cell">Manage final content push and integration</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>4.0h</td>
-                            <td class="cost-cell">$140</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="task-cell">Final General Content Creation</td>
-                            <td class="description-cell">Complete remaining general content</td>
-                            <td class="specialist-cell">Content Writer</td>
-                            <td>4,500 words</td>
-                            <td class="cost-cell">$360</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="task-cell">Final Medical Content Creation</td>
-                            <td class="description-cell">Complete remaining medical content</td>
-                            <td class="specialist-cell">Medical Content Writer</td>
-                            <td>2,500 words</td>
-                            <td class="cost-cell">$625</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="task-cell">Content Population & Insertion</td>
-                            <td class="description-cell">Insert all content into WordPress</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>12.0h</td>
-                            <td class="cost-cell">$360</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="task-cell">Advanced Form Development</td>
-                            <td class="description-cell">Enhanced contact forms with validation</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>6.0h</td>
-                            <td class="cost-cell">$180</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="task-cell">Image Optimization & Alt Text</td>
-                            <td class="description-cell">Optimize images and add SEO alt text</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>8.0h</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="task-cell">Performance Plugin Setup</td>
-                            <td class="description-cell">Caching, compression, lazy-loading</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>4.0h</td>
-                            <td class="cost-cell">$120</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="task-cell">Internal Content Review & Edits</td>
-                            <td class="description-cell">SEO/UX polishing and QA</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>3.0h</td>
-                            <td class="cost-cell">$105</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="task-cell">Medical Content Expert Review</td>
-                            <td class="description-cell">Final medical accuracy validation</td>
-                            <td class="specialist-cell">Content Manager</td>
-                            <td>8.0h</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="task-cell">Cross-platform Integration Testing</td>
-                            <td class="description-cell">Test all functionality across devices</td>
-                            <td class="specialist-cell">QA Tester</td>
-                            <td>6.0h</td>
-                            <td class="cost-cell">$180</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="task-cell">Client Content Review Session</td>
-                            <td class="description-cell">Present all content for final approval</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>3.0h</td>
-                            <td class="cost-cell">$105</td>
-                        </tr>
-                        <tr>
-                            <td>12</td>
-                            <td class="task-cell">Content Revision Buffer</td>
-                            <td class="description-cell">Handle content change requests</td>
-                            <td class="specialist-cell">Content Writer</td>
-                            <td>500 words</td>
-                            <td class="cost-cell">$40</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Sprint 5 Header -->
-        <div class="slide large sprint-header gradient-sprint5">
-            <h1>SPRINT 5<br><span style="font-size: 0.6em;">SEO & Security</span></h1>
-        </div>
-
-        <!-- Sprint 5 Overview -->
-        <div class="slide">
-            <h2>Sprint 5: SEO Optimization & Security</h2>
-            <h3>Duration: 2 weeks | Cost: $2,310</h3>
-            <div class="highlight-box">
-                <h3>Goal</h3>
-                <p>Make your website easy to find on Google and secure from hackers.</p>
-            </div>
-            <div class="deliverables">
-                <div class="deliverable-item">✓ All SEO elements set up for Google ranking</div>
-                <div class="deliverable-item">✓ Google Analytics tracking your visitors</div>
-                <div class="deliverable-item">✓ Strong security measures protecting website</div>
-                <div class="deliverable-item">✓ Automated backups saving content safely</div>
-            </div>
-        </div>
-
-        <!-- Sprint 5 Full Tasks -->
-        <div class="slide extra-large">
-            <h2>Sprint 5: Complete Task List</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Task</th>
-                            <th>Description</th>
-                            <th>Specialist</th>
-                            <th>Hours</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="task-cell">Sprint Coordination</td>
-                            <td class="description-cell">Manage SEO and security implementation</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>4.0</td>
-                            <td class="cost-cell">$140</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="task-cell">On-Page SEO Optimization</td>
-                            <td class="description-cell">Keywords, internal links, H-tags, schema</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>15.0</td>
-                            <td class="cost-cell">$525</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="task-cell">Sitemap & Robots.txt Configuration</td>
-                            <td class="description-cell">Generate XML sitemap, configure robots.txt</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>3.0</td>
-                            <td class="cost-cell">$105</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="task-cell">OG & Social Preview Setup</td>
-                            <td class="description-cell">Open Graph & Twitter Card tags</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>9.0</td>
-                            <td class="cost-cell">$315</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="task-cell">Google Analytics & Search Console</td>
-                            <td class="description-cell">Setup, test events, submit for indexing</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>10.0</td>
-                            <td class="cost-cell">$350</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="task-cell">Comprehensive Security Setup</td>
-                            <td class="description-cell">Firewall, malware protection, monitoring</td>
-                            <td class="specialist-cell">Cybersecurity Specialist</td>
-                            <td>8.0</td>
-                            <td class="cost-cell">$520</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="task-cell">CDN & Performance Optimization</td>
-                            <td class="description-cell">Cloudflare setup and optimization</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>4.0</td>
-                            <td class="cost-cell">$120</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="task-cell">Backup System Implementation</td>
-                            <td class="description-cell">Automated backup configuration</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>3.0</td>
-                            <td class="cost-cell">$90</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="task-cell">GDPR Compliance Setup</td>
-                            <td class="description-cell">Cookie consent and privacy tools</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>3.0</td>
-                            <td class="cost-cell">$90</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="task-cell">Pre-launch Security Audit</td>
-                            <td class="description-cell">Comprehensive security testing</td>
-                            <td class="specialist-cell">Cybersecurity Specialist</td>
-                            <td>1.0</td>
-                            <td class="cost-cell">$65</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Sprint 6 Header -->
-        <div class="slide large sprint-header gradient-sprint6">
-            <h1>SPRINT 6<br><span style="font-size: 0.6em;">Testing & Launch</span></h1>
-        </div>
-
-        <!-- Sprint 6 Overview -->
-        <div class="slide">
-            <h2>Sprint 6: Testing & Launch</h2>
-            <h3>Duration: 1.5 weeks | Cost: $1,605</h3>
-            <div class="highlight-box">
-                <h3>Goal</h3>
-                <p>Test everything thoroughly, train you on using the website, and launch it live.</p>
-            </div>
-            <div class="deliverables">
-                <div class="deliverable-item">✓ Website fully tested and any bugs fixed</div>
-                <div class="deliverable-item">✓ You trained on how to update content and manage the site</div>
-                <div class="deliverable-item">✓ Website launched and live for visitors</div>
-                <div class="deliverable-item">✓ Complete documentation and ongoing support provided</div>
-            </div>
-        </div>
-
-        <!-- Sprint 6 Full Tasks -->
-        <div class="slide extra-large">
-            <h2>Sprint 6: Complete Task List</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Task</th>
-                            <th>Description</th>
-                            <th>Specialist</th>
-                            <th>Hours</th>
-                            <th>Cost</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td class="task-cell">Launch Coordination</td>
-                            <td class="description-cell">Manage final testing and launch process</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>6.0</td>
-                            <td class="cost-cell">$210</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td class="task-cell">Comprehensive QA Testing</td>
-                            <td class="description-cell">Forms, navigation, responsiveness, performance</td>
-                            <td class="specialist-cell">QA Tester</td>
-                            <td>12.0</td>
-                            <td class="cost-cell">$360</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td class="task-cell">SEO Validation</td>
-                            <td class="description-cell">Final SEO audit and optimization</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>6.0</td>
-                            <td class="cost-cell">$210</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td class="task-cell">Performance Testing & Optimization</td>
-                            <td class="description-cell">Speed tests, Core Web Vitals optimization</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>4.0</td>
-                            <td class="cost-cell">$120</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td class="task-cell">Final Bug Fixes & Polish</td>
-                            <td class="description-cell">Address any issues found in testing</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>8.0</td>
-                            <td class="cost-cell">$240</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td class="task-cell">Documentation Creation</td>
-                            <td class="description-cell">Admin guides, maintenance procedures</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>4.0</td>
-                            <td class="cost-cell">$140</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td class="task-cell">Client Training Session</td>
-                            <td class="description-cell">CMS training and handover</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>3.0</td>
-                            <td class="cost-cell">$105</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td class="task-cell">SEO Handoff Consultation</td>
-                            <td class="description-cell">Final SEO guidance and next steps</td>
-                            <td class="specialist-cell">SEO Specialist</td>
-                            <td>2.0</td>
-                            <td class="cost-cell">$70</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td class="task-cell">Go-Live Support</td>
-                            <td class="description-cell">Monitor launch and immediate support</td>
-                            <td class="specialist-cell">System Administrator</td>
-                            <td>2.0</td>
-                            <td class="cost-cell">$60</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td class="task-cell">Final Asset Delivery</td>
-                            <td class="description-cell">Organize and deliver all project files</td>
-                            <td class="specialist-cell">Project Manager</td>
-                            <td>2.0</td>
-                            <td class="cost-cell">$70</td>
-                        </tr>
-                        <tr>
-                            <td>11</td>
-                            <td class="task-cell">Post-Launch Buffer</td>
-                            <td class="description-cell">Handle immediate post-launch issues</td>
-                            <td class="specialist-cell">Developer</td>
-                            <td>1.0</td>
-                            <td class="cost-cell">$30</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
         <!-- Project Summary with Cost Table -->
         <div class="slide large">
             <h2>Project Summary</h2>
@@ -1534,206 +821,6 @@
             </div>
         </div>
 
-        <!-- Hours Distribution by Specialist and Sprint -->
-        <div class="slide extra-large">
-            <h2>Hours Distribution by Specialist and Sprint</h2>
-            <div class="table-container full-height">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Specialist</th>
-                            <th>Sprint 1</th>
-                            <th>Sprint 2</th>
-                            <th>Sprint 3</th>
-                            <th>Sprint 4</th>
-                            <th>Sprint 5</th>
-                            <th>Sprint 6</th>
-                            <th>Total per Specialist</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="task-cell">Content Manager</td>
-                            <td>14.0</td>
-                            <td>14.0</td>
-                            <td>0.0</td>
-                            <td>8.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td class="cost-cell"><strong>36.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Cybersecurity Specialist</td>
-                            <td>2.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>9.0</td>
-                            <td>0.0</td>
-                            <td class="cost-cell"><strong>11.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Developer</td>
-                            <td>0.0</td>
-                            <td>4.0</td>
-                            <td>48.0</td>
-                            <td>18.0</td>
-                            <td>3.0</td>
-                            <td>9.0</td>
-                            <td class="cost-cell"><strong>82.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Marketing Specialist</td>
-                            <td>15.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td class="cost-cell"><strong>15.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Project Manager</td>
-                            <td>12.0</td>
-                            <td>11.0</td>
-                            <td>11.0</td>
-                            <td>7.0</td>
-                            <td>4.0</td>
-                            <td>15.0</td>
-                            <td class="cost-cell"><strong>60.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">QA Tester</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>12.0</td>
-                            <td>6.0</td>
-                            <td>0.0</td>
-                            <td>12.0</td>
-                            <td class="cost-cell"><strong>30.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">SEO Specialist</td>
-                            <td>30.0</td>
-                            <td>7.0</td>
-                            <td>7.0</td>
-                            <td>3.0</td>
-                            <td>37.0</td>
-                            <td>8.0</td>
-                            <td class="cost-cell"><strong>92.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">System Administrator</td>
-                            <td>4.0</td>
-                            <td>6.0</td>
-                            <td>0.0</td>
-                            <td>12.0</td>
-                            <td>7.0</td>
-                            <td>6.0</td>
-                            <td class="cost-cell"><strong>35.0</strong></td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">UI/UX Designer</td>
-                            <td>35.0</td>
-                            <td>50.0</td>
-                            <td>34.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td>0.0</td>
-                            <td class="cost-cell"><strong>119.0</strong></td>
-                        </tr>
-                        <tr style="background: #f7fafc; font-weight: 600;">
-                            <td class="task-cell"><strong>Total per Sprint</strong></td>
-                            <td class="cost-cell"><strong>112.0</strong></td>
-                            <td class="cost-cell"><strong>92.0</strong></td>
-                            <td class="cost-cell"><strong>112.0</strong></td>
-                            <td class="cost-cell"><strong>54.0</strong></td>
-                            <td class="cost-cell"><strong>60.0</strong></td>
-                            <td class="cost-cell"><strong>50.0</strong></td>
-                            <td class="cost-cell" style="font-size: 1.1em; color: #d69e2e;"><strong>480</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-    </div>
-
-        <!-- Workload Breakdown by Specialist -->
-        <div class="slide large">
-            <h2>Workload Breakdown by Specialist</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Specialist</th>
-                            <th>Hours / Words</th>
-                            <th>Specialization Focus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="task-cell">UI/UX Designer</td>
-                            <td class="cost-cell">119 hours</td>
-                            <td class="description-cell">Brand design, templates, user experience</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">SEO Specialist</td>
-                            <td class="cost-cell">92 hours</td>
-                            <td class="description-cell">Keyword research, on-page SEO, analytics</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Developer</td>
-                            <td class="cost-cell">82 hours</td>
-                            <td class="description-cell">Template development, forms, functionality</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Project Manager</td>
-                            <td class="cost-cell">60 hours</td>
-                            <td class="description-cell">Coordination, client communication, documentation</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Content Manager</td>
-                            <td class="cost-cell">36 hours</td>
-                            <td class="description-cell">Content strategy, quality review, guidelines</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">System Administrator</td>
-                            <td class="cost-cell">35 hours</td>
-                            <td class="description-cell">Infrastructure, performance, backups</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">QA Tester</td>
-                            <td class="cost-cell">30 hours</td>
-                            <td class="description-cell">Quality assurance, cross-browser testing</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Content Writer</td>
-                            <td class="cost-cell">18,500 words*</td>
-                            <td class="description-cell">General content creation, revisions</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Marketing Specialist</td>
-                            <td class="cost-cell">15 hours</td>
-                            <td class="description-cell">Market research, audience analysis</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Cybersecurity Specialist</td>
-                            <td class="cost-cell">11 hours</td>
-                            <td class="description-cell">Security setup, protection, auditing</td>
-                        </tr>
-                        <tr>
-                            <td class="task-cell">Medical Content Writer</td>
-                            <td class="cost-cell">10,000 words</td>
-                            <td class="description-cell">Specialized medical content creation</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="highlight-box" style="margin-top: 20px;">
-                <h3>Note</h3>
-                <p>*Content Writer total includes 500 words for revision tasks during Sprint 4. Content writers are paid per word, while all other specialists are paid hourly.</p>
-            </div>
-        </div>
-
         <!-- WordPress Website Development Roadmap -->
         <div class="slide large gradient-main">
             <h1>WordPress Website<br>Development Roadmap</h1>
@@ -1759,6 +846,11 @@
         </div>
 
     </div>
+
+    <!-- Footer with Copyright -->
+    <footer style="background: #2d3748; color: white; text-align: center; padding: 20px 0; margin-top: 40px; font-size: 0.9em;">
+        <p>&copy; 2025 Alexander Khomushko It Services LLC</p>
+    </footer>
 
     <!-- Floating Action Button -->
     <button class="fab" onclick="scrollToTop()" title="Back to Top">↑</button>
@@ -1794,6 +886,4 @@
         });
     </script>
 </body>
-
 </html>
-
