@@ -19,73 +19,74 @@
             position: relative;
         }
 
-        /* Watermark for dashboard slides - Checkerboard pattern */
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: 
-                url('logo_weblab.svg.svg') 0 0,
-                url('logo_weblab.svg.svg') 80px 80px;
-            background-size: 160px 160px;
-            background-repeat: repeat;
-            opacity: 0.025;
-            z-index: 0;
-            pointer-events: none;
-            transform: rotate(-15deg);
-            transform-origin: center;
+        /* Header */
+        .site-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 20px;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        /* Ensure content is above watermark */
-        .slide > * {
-            position: relative;
-            z-index: 1;
+        .site-header .logo {
+            flex: 0 0 auto;
         }
 
-        /* Ensure tables and containers are above watermark */
-        .table-container,
-        .stats-grid,
-        .phase-grid,
-        .deliverables,
-        .highlight-box,
-        .sprint-list {
-            position: relative;
-            z-index: 2;
+        .site-header .logo img {
+            max-width: 150px;
+            height: auto;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
         }
 
-        /* Special watermark for sprint headers - Checkerboard pattern */
-        .slide.sprint-header::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: -20%;
-            width: 140%;
-            height: 140%;
-            background: 
-                url('logo_weblab.svg.svg') 0 0,
-                url('logo_weblab.svg.svg') 80px 80px;
-            background-size: 160px 160px;
-            background-repeat: repeat;
-            opacity: 0.025;
-            z-index: 0;
-            pointer-events: none;
-            transform: rotate(-15deg);
-            transform-origin: center;
+        .site-header .logo:hover img {
+            opacity: 0.7;
         }
 
-        /* Enhanced watermark for gradient slides - Checkerboard pattern */
-        .slide.gradient-main::before,
-        .slide.gradient-team::before,
-        .slide.gradient-overview::before {
-            opacity: 0.04;
-            background: 
-                url('logo_weblab.svg.svg') 0 0,
-                url('logo_weblab.svg.svg') 85px 85px;
-            background-size: 170px 170px;
-            background-repeat: repeat;
+        .site-header .contact-email {
+            flex: 0 0 auto;
+            font-size: 0.95em;
+            color: #4a5568;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .site-header .contact-email:hover {
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer styles */
+        .site-footer {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-footer p {
+            margin: 0;
+            font-size: 0.95em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .site-footer .copyright-symbol {
+            font-size: 1.1em;
+            opacity: 0.8;
         }
 
         .presentation-container {
@@ -448,18 +449,29 @@
             box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
         }
 
-        @media (max-width: 768px) {
-            .presentation-container {
-                grid-template-columns: 1fr;
-                padding: 10px;
-            }
-            
-            .slide.large, .slide.extra-large {
-                grid-column: span 1;
-            }
+                 @media (max-width: 768px) {
+             .site-header {
+                 flex-direction: column;
+                 padding: 20px;
+                 text-align: center;
+                 gap: 15px;
+             }
 
-            h1 { font-size: 2.5em; }
-            h2 { font-size: 2em; }
+             .site-header .logo img {
+                 max-width: 120px;
+             }
+
+             .presentation-container {
+                 grid-template-columns: 1fr;
+                 padding: 10px;
+             }
+             
+             .slide.large, .slide.extra-large {
+                 grid-column: span 1;
+             }
+
+             h1 { font-size: 2.5em; }
+             h2 { font-size: 2em; }
             .stats-grid, .phase-grid {
                 grid-template-columns: 1fr;
             }
@@ -502,8 +514,18 @@
         }
     </style>
 </head>
-<body>
-    <div class="presentation-container">
+ <body>
+     <!-- Header -->
+     <header class="site-header">
+         <div class="logo">
+             <img src="logo_weblab.svg.svg" alt="WebLab Logo">
+         </div>
+         <a href="mailto:mail@weblab420.com" class="contact-email">
+             mail@weblab420.com
+         </a>
+     </header>
+     
+     <div class="presentation-container">
         
         <!-- Dashboard Navigation -->
         <div class="slide large gradient-main">
@@ -848,8 +870,11 @@
     </div>
 
     <!-- Footer with Copyright -->
-    <footer style="background: #2d3748; color: white; text-align: center; padding: 20px 0; margin-top: 40px; font-size: 0.9em;">
-        <p>&copy; 2025 Alexander Khomushko It Services LLC</p>
+    <footer class="site-footer">
+        <p>
+            <span class="copyright-symbol">&copy;</span>
+            <span>2025 Alexander Khomushko It Services LLC</span>
+        </p>
     </footer>
 
     <!-- Floating Action Button -->
