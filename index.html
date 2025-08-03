@@ -921,24 +921,34 @@
              window.scrollTo({ top: 0, behavior: 'smooth' });
          }
 
-         // Show/hide FAB based on scroll position
-         function toggleFAB() {
+         // Show/hide FAB based on last purple block visibility
+         function observeLastBlock() {
              const fab = document.querySelector('.fab');
-             const scrollPosition = window.scrollY;
-             const windowHeight = window.innerHeight;
-             const documentHeight = document.documentElement.scrollHeight;
+             const lastBlock = document.querySelector('.slide.large.gradient-main:last-of-type');
              
-             // Show FAB when user scrolled down more than 200px or near bottom
-             if (scrollPosition > 200 || (scrollPosition + windowHeight) > (documentHeight - 300)) {
-                 fab.classList.add('visible');
-             } else {
-                 fab.classList.remove('visible');
-             }
+             if (!lastBlock) return;
+
+             const observer = new IntersectionObserver((entries) => {
+                 entries.forEach(entry => {
+                     if (entry.isIntersecting) {
+                         // Show FAB when last purple block is visible
+                         fab.classList.add('visible');
+                     } else {
+                         // Hide FAB when last purple block is not visible
+                         fab.classList.remove('visible');
+                     }
+                 });
+             }, {
+                 root: null,
+                 rootMargin: '0px 0px -50px 0px', // Trigger when block is 50px from bottom
+                 threshold: 0.1
+             });
+
+             observer.observe(lastBlock);
          }
 
-         // Add scroll event listener
-         window.addEventListener('scroll', toggleFAB);
-         window.addEventListener('load', toggleFAB);
+         // Initialize observer when page loads
+         window.addEventListener('load', observeLastBlock);
 
         // Add loading animation
         window.addEventListener('load', function() {
