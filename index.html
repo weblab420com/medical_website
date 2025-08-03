@@ -64,7 +64,7 @@
 
         /* Footer styles */
         .site-footer {
-            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            background: #1a202c;
             color: white;
             text-align: center;
             padding: 30px 20px;
@@ -76,17 +76,19 @@
         .site-footer p {
             margin: 0;
             font-size: 0.95em;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            color: #f7fafc;
         }
 
         .site-footer .copyright-symbol {
             font-size: 1.1em;
-            opacity: 0.8;
+            opacity: 1;
+            color: #e2e8f0;
         }
 
         .presentation-container {
@@ -442,11 +444,24 @@
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
             transition: all 0.3s ease;
             z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100px);
+        }
+
+        .fab.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
         .fab:hover {
             transform: scale(1.1);
             box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .fab.visible:hover {
+            transform: scale(1.1) translateY(0);
         }
 
                  @media (max-width: 768px) {
@@ -467,7 +482,8 @@
              }
 
              .fab {
-                 bottom: 80px;
+                 bottom: 100px;
+                 right: 20px;
              }
 
              .presentation-container {
@@ -900,10 +916,29 @@
             });
         });
 
-        // Scroll to top function
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+                 // Scroll to top function
+         function scrollToTop() {
+             window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
+
+         // Show/hide FAB based on scroll position
+         function toggleFAB() {
+             const fab = document.querySelector('.fab');
+             const scrollPosition = window.scrollY;
+             const windowHeight = window.innerHeight;
+             const documentHeight = document.documentElement.scrollHeight;
+             
+             // Show FAB when user scrolled down more than 200px or near bottom
+             if (scrollPosition > 200 || (scrollPosition + windowHeight) > (documentHeight - 300)) {
+                 fab.classList.add('visible');
+             } else {
+                 fab.classList.remove('visible');
+             }
+         }
+
+         // Add scroll event listener
+         window.addEventListener('scroll', toggleFAB);
+         window.addEventListener('load', toggleFAB);
 
         // Add loading animation
         window.addEventListener('load', function() {
