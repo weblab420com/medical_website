@@ -261,8 +261,6 @@
             overflow: hidden;
             background: #f7fafc;
             border: 1px solid #e2e8f0;
-            max-height: 500px;
-            overflow-y: auto;
         }
 
         .table-container.full-height {
@@ -465,7 +463,7 @@
             transform: scale(1.1) translateY(0);
         }
 
-                 @media (max-width: 768px) {
+        @media (max-width: 768px) {
              .site-header {
                  flex-direction: column;
                  padding: 20px;
@@ -487,14 +485,14 @@
                  right: 20px;
              }
 
-             .presentation-container {
-                 grid-template-columns: 1fr;
-                 padding: 10px;
-             }
-             
-             .slide.large, .slide.extra-large {
-                 grid-column: span 1;
-             }
+            .presentation-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            
+            .slide.large, .slide.extra-large {
+                grid-column: span 1;
+            }
 
              h1 { font-size: 2.5em; }
              h2 { font-size: 2em; }
@@ -540,7 +538,7 @@
         }
     </style>
 </head>
- <body>
+<body>
      <!-- Header -->
      <header class="site-header">
          <div class="logo">
@@ -551,7 +549,7 @@
          </a>
      </header>
      
-     <div class="presentation-container">
+    <div class="presentation-container">
         
         <!-- Dashboard Navigation -->
         <div class="slide large gradient-main">
@@ -613,7 +611,7 @@
         <!-- Team & Rates Table -->
         <div class="slide large gradient-team">
             <h2>Team & Rates</h2>
-            <div class="table-container">
+            <div class="table-container full-height">
                 <table>
                     <thead>
                         <tr>
@@ -1704,7 +1702,7 @@
         <!-- Workload Breakdown by Specialist -->
         <div class="slide large">
             <h2>Workload Breakdown by Specialist</h2>
-            <div class="table-container">
+            <div class="table-container full-height">
                 <table>
                     <thead>
                         <tr>
@@ -1781,7 +1779,7 @@
         <!-- Project Summary with Cost Table -->
         <div class="slide large">
             <h2>Project Summary</h2>
-            <div class="table-container">
+            <div class="table-container full-height">
                 <table>
                     <thead>
                         <tr>
@@ -1874,7 +1872,7 @@
                     <div class="stat-label">Total Words</div>
                 </div>
             </div>
-        </div>
+    </div>
 
     </div>
 
