@@ -28,6 +28,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 20px;
         }
 
         .site-header .logo {
@@ -60,6 +61,33 @@
         .site-header .contact-email:hover {
             color: #2d3748;
             background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .nav-link:hover {
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-link.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            font-weight: 600;
         }
 
         /* Footer styles */
@@ -475,6 +503,14 @@
                  max-width: 120px;
              }
 
+             .header-nav {
+                 order: 2;
+             }
+
+             .contact-email {
+                 order: 3;
+             }
+
              .site-footer {
                  padding: 15px 10px;
                  margin-top: 25px;
@@ -544,6 +580,10 @@
          <div class="logo">
              <img src="logo_weblab.svg.svg" alt="WebLab Logo">
          </div>
+         <nav class="header-nav">
+             <a href="index.html" class="nav-link active">Roadmap</a>
+             <a href="index2.html" class="nav-link">Pages</a>
+         </nav>
          <a href="mailto:mail@weblab420.com" class="contact-email">
              mail@weblab420.com
          </a>
