@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GetChecked Clinic - Project Specification</title>
+    <title>Site Structure Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -16,413 +16,710 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
-            overflow-x: hidden;
         }
 
-        /* Header */
-        .site-header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 20px;
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .site-header .logo {
-            flex: 0 0 auto;
-        }
-
-        .site-header .logo img {
-            max-width: 150px;
-            height: auto;
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
-        }
-
-        .site-header .logo:hover img {
-            opacity: 0.7;
-        }
-
-        .site-header .contact-email {
-            flex: 0 0 auto;
-            font-size: 0.95em;
-            color: #4a5568;
-            font-weight: 500;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .site-header .contact-email:hover {
-            color: #2d3748;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        /* Header Navigation */
-        .header-nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-link {
-            padding: 8px 16px;
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 500;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-size: 0.95em;
-        }
-
-        .nav-link:hover {
-            color: #2d3748;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .nav-link.active {
-            color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
-            font-weight: 600;
-        }
-
-        .container {
+        .dashboard {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .card {
+        .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
 
-        .card.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .card h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            border-radius: 12px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            background: #edf2f7;
-            color: #2d3748;
-            font-weight: 600;
-            padding: 15px 12px;
-            text-align: left;
-            font-size: 0.9rem;
-            border-bottom: 2px solid #cbd5e0;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #e2e8f0;
-            color: #4a5568;
-            font-size: 0.9rem;
-            vertical-align: top;
-            background: white;
-        }
-
-        tr:hover td {
-            background: #f7fafc;
-        }
-
-        .template-grid {
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
 
-        .template-card {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 25px;
+        .stat-card {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            padding: 20px;
             border-radius: 15px;
             text-align: center;
-            transition: all 0.3s ease;
+            color: white;
+            font-weight: bold;
         }
 
-        .template-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.4);
-        }
-
-        .template-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .template-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .template-pages {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .section-breakdown {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .section-item {
-            background: #f7fafc;
-            border-radius: 12px;
+        .search-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             padding: 20px;
-            border-left: 4px solid #667eea;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tree {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .tree-item {
+            margin: 5px 0;
             transition: all 0.3s ease;
         }
 
-        .section-item:hover {
-            background: #edf2f7;
-            transform: translateX(5px);
+        .tree-item.hidden {
+            display: none;
         }
 
-        .section-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 8px;
-        }
-
-        .section-count {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .tree-toggle {
+            background: none;
+            border: none;
             color: #667eea;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 5px;
+            width: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tree-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        .tree-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .tree-content {
+            display: inline;
+        }
+
+        .tree-name {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .tree-path {
+            color: #666;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+
+        .tree-description {
+            color: #999;
+            font-style: italic;
+        }
+
+        .level-0 { margin-left: 0; font-size: 18px; font-weight: bold; color: #2c3e50; }
+        .level-1 { margin-left: 20px; font-size: 16px; color: #34495e; }
+        .level-2 { margin-left: 40px; font-size: 15px; color: #5d6d7e; }
+        .level-3 { margin-left: 60px; font-size: 14px; color: #7f8c8d; }
+        .level-4 { margin-left: 80px; font-size: 13px; color: #95a5a6; }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 2px 6px;
+            border-radius: 5px;
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .children {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .children.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .expand-all-btn, .collapse-all-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px 10px 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .expand-all-btn:hover, .collapse-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
         }
 
         @media (max-width: 768px) {
-            .site-header {
-                flex-direction: column;
-            padding: 20px;
-            text-align: center;
-                gap: 15px;
-            }
-
-            .site-header .logo img {
-                max-width: 120px;
-            }
-
-            .header-nav {
-                order: 2;
-            }
-
-            .contact-email {
-                order: 3;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
+            .dashboard {
+                padding: 10px;
             }
             
-            .card.full-width {
-                grid-column: span 1;
+            .header h1 {
+                font-size: 2rem;
             }
-
-            .template-grid {
+            
+            .stats {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="logo">
-            <img src="logo_weblab.svg.svg" alt="WebLab Logo">
-        </div>
-        <nav class="header-nav">
-            <a href="index.html" class="nav-link">Roadmap</a>
-            <a href="index2.html" class="nav-link active">Pages</a>
-            <a href="index3.html" class="nav-link">Questions</a>
-        </nav>
-        <a href="mailto:mail@weblab420.com" class="contact-email">
-            mail@weblab420.com
-        </a>
-    </header>
-
-    <div class="container">
-        <!-- Detailed Page Structure -->
-        <div class="card full-width">
-            <h2>Detailed Page Structure</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Section</th>
-                            <th>Pages</th>
-                            <th>Count</th>
-                            <th>Template</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Main Pages</strong></td>
-                            <td>Home, About, Blog, Career, Contact</td>
-                            <td>5</td>
-                            <td>Templates #1-5</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Services</strong></td>
-                            <td>Beauty, Genetic Testing, Men's Health, Women's Health, General Health, STD/STI Testing, IV Therapy, Diet & Nutrition, Sports Medicine, Lymphatic Drainage Massage, HPV, Vaccines & IV Medication, Corporate Wellness, Getchecked Rehab, Physiotherapy, Hijama Cupping Therapy</td>
-                            <td>16</td>
-                            <td>Template #6</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Blog Articles</strong></td>
-                            <td>Detoxifying with Glutathione, Navigating Sports Medicine, Exploring Genetic Testing, Hijama Therapy Benefits, Crafting Corporate Wellness, Therapeutic Impact of Lymphatic, Top Qualities to Look, Choosing the Right IV, Common STDs in Dubai</td>
-                            <td>9</td>
-                            <td>Template #7</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Genetic Testing</strong></td>
-                            <td>Methylation Panel, Micronutrient Panel, Getchecked NIPT, Nutrigene Health, Nutrigene Sports, NutriGene Plant Based, Heavy Metals, Total Tox Burden, Whole Blood Nutrient, Connective Tissue Disorder, Oxidative Stress Profile, Carrier Screening, Whole Exome Sequencing, Whole Genome Sequencing, Genetic Mutation</td>
-                            <td>15</td>
-                            <td>Template #8</td>
-                        </tr>
-                        <tr>
-                            <td><strong>STD/STI Testing</strong></td>
-                            <td>Single Test, Full Blood Testing, GC Exclusive 4 Pathogen 499, Incurable & Chronic STD/STI, 8 Pathogen, 13 Pathogen, 17 Pathogen, 21 Pathogen, 25 Pathogen, 28 Pathogen, GC Ultimate 36 Pathogen, GC Exclusive Elite Package 73 Pathogen, GC Exclusive Elite Package 85 Pathogen</td>
-                            <td>13</td>
-                            <td>Template #9</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="dashboard">
+        <div class="header">
+            <h1>🌐 Site Structure Dashboard</h1>
+            <p>Interactive site map with full navigation</p>
+            <div class="stats">
+                <div class="stat-card">
+                    <div id="total-pages">0</div>
+                    <div>Total Pages</div>
+                </div>
+                <div class="stat-card">
+                    <div id="main-sections">0</div>
+                    <div>Main Sections</div>
+                </div>
+                <div class="stat-card">
+                    <div id="max-depth">0</div>
+                    <div>Maximum Depth</div>
+                </div>
+                <div class="stat-card">
+                    <div id="visible-items">0</div>
+                    <div>Visible Items</div>
+                </div>
             </div>
         </div>
 
-        <!-- WordPress Template Structure -->
-        <div class="card full-width">
-            <h2>WordPress Template Structure</h2>
-            <p style="color: #718096; margin-bottom: 25px;">9 custom templates designed to handle all 58 pages efficiently</p>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="🔍 Search site structure... (e.g., 'genetic', 'hormone', 'therapy')" id="searchInput">
+        </div>
+
+        <div class="content">
+            <div class="breadcrumb" id="breadcrumb">
+                Home &gt; Site Structure
+            </div>
             
-            <div class="template-grid">
-                <div class="template-card">
-                    <div class="template-number">Template #1</div>
-                    <div class="template-name">Home</div>
-                    <div class="template-pages">1 page</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #2</div>
-                    <div class="template-name">About</div>
-                    <div class="template-pages">1 page</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #3</div>
-                    <div class="template-name">Blog</div>
-                    <div class="template-pages">1 page</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #4</div>
-                    <div class="template-name">Career</div>
-                    <div class="template-pages">1 page</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #5</div>
-                    <div class="template-name">Contact</div>
-                    <div class="template-pages">1 page</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #6</div>
-                    <div class="template-name">Services</div>
-                    <div class="template-pages">16 pages</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #7</div>
-                    <div class="template-name">Blog Article</div>
-                    <div class="template-pages">9 pages</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #8</div>
-                    <div class="template-name">Genetic Testing</div>
-                    <div class="template-pages">15 pages</div>
-                </div>
-                <div class="template-card">
-                    <div class="template-number">Template #9</div>
-                    <div class="template-name">STD/STI Testing</div>
-                    <div class="template-pages">13 pages</div>
-                </div>
-            </div>
+            <button class="expand-all-btn" onclick="expandAll()">📂 Expand All</button>
+            <button class="collapse-all-btn" onclick="collapseAll()">📁 Collapse All</button>
+            
+            <div class="tree" id="siteTree"></div>
         </div>
-
-        <!-- Site Structure -->
-        <div class="grid">
-            <div class="card">
-                <h2>Site Structure</h2>
-                <div class="section-breakdown">
-                    <div class="section-item">
-                        <div class="section-title">Main Pages</div>
-                        <div class="section-count">5</div>
-            </div>
-                                        <div class="section-item">
-                        <div class="section-title">Services</div>
-                        <div class="section-count">16</div>
-                    </div>
-                    <div class="section-item">
-                        <div class="section-title">Blog Articles</div>
-                        <div class="section-count">9</div>
-                </div>
-                    <div class="section-item">
-                        <div class="section-title">Genetic Testing</div>
-                        <div class="section-count">15</div>
-                </div>
-                    <div class="section-item">
-                        <div class="section-title">STD/STI Testing</div>
-                        <div class="section-count">13</div>
-                </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
+
+    <script>
+        const siteStructure = {
+            name: "Home",
+            path: "/home/",
+            description: "Main page",
+            children: [
+                {
+                    name: "About Us",
+                    path: "about/",
+                    description: "About us"
+                },
+                {
+                    name: "Contacts",
+                    path: "contacts/",
+                    description: "Contact information"
+                },
+                {
+                    name: "Get Tested",
+                    path: "get-tested/",
+                    description: "Testing services",
+                    children: [
+                        {
+                            name: "Preventive & General Health",
+                            path: "preventive-general-health/",
+                            description: "Prevention and general health",
+                            children: [
+                                { name: "General & Preventive Health Panel", path: "general-panel/" },
+                                { name: "Corporate Health Check", path: "corporate-check/" },
+                                { name: "Functional & Lifestyle Genetics", path: "lifestyle-genetics/" },
+                                { name: "Test Finder", path: "test-finder/" }
+                            ]
+                        },
+                        {
+                            name: "Genetic Health Risk & Longevity Screening",
+                            path: "genetic-screening/",
+                            children: [
+                                { name: "Longevity, Biohacking & Aging Risk", path: "longevity-risk/" },
+                                { name: "3X4 Genetics & Lifestyle", path: "3x4-genetics/" },
+                                { name: "Genetic Methylation Testing", path: "methylation-testing/" },
+                                { name: "Ancestry & Family Tree", path: "ancestry-family-tree/" },
+                                { name: "Neurodegenerative Disease Risk (APOE)", path: "apoe-risk/" },
+                                { name: "Nutrigenomics & Functional Wellness", path: "nutrigenomics/" },
+                                { name: "Cancer Genetic Panel (BRCA, colon, prostate)", path: "cancer-panel/" },
+                                { name: "Cardiovascular & Stroke Risk Genes", path: "cardio-stroke-risk/" },
+                                { name: "Metabolic Syndrome & Diabetes Risk", path: "metabolic-risk/" },
+                                { name: "Rare Genetic Disease Testing (WES/WGS)", path: "rare-disease-testing/" },
+                                { name: "Skin DNA Check", path: "skin-dna/" },
+                                { name: "Mind, Mood & Cognitive Genetics", path: "cognitive-genetics/" },
+                                { name: "Carrier Screening & Reproductive Genetics", path: "carrier-screening/" },
+                                { name: "Non-Invasive Prenatal Test", path: "prenatal-test/" }
+                            ]
+                        },
+                        {
+                            name: "Cardiovascular & Chronic Disease",
+                            path: "cardiovascular-chronic-disease/",
+                            children: [
+                                { name: "Advanced Heart & Vascular Check (CardioVantage)", path: "advanced-heart-check/" },
+                                { name: "Chronic Disease Monitor & Reverse", path: "chronic-disease-monitor/" },
+                                { name: "CT Coronary Calcium Score", path: "calcium-score/" }
+                            ]
+                        },
+                        {
+                            name: "Hormonal Balance & Endocrine Health",
+                            path: "hormonal-balance/",
+                            children: [
+                                { name: "Hormone Balance Check", path: "hormone-check/" },
+                                { name: "PCOS, Menopause, Andropause Risk", path: "menopause-andropause/" },
+                                { name: "Thyroid & Adrenal Panels", path: "thyroid-adrenal/" }
+                            ]
+                        },
+                        {
+                            name: "Women's, Men's Health",
+                            path: "gender-health/",
+                            children: [
+                                { name: "Women's Health Panel", path: "women-panel/" },
+                                { name: "Men's Health Panel", path: "men-panel/" },
+                                { name: "Fertility Longevity Panel", path: "fertility-panel/" }
+                            ]
+                        },
+                        {
+                            name: "Gut, Nutrition & Metabolic Panels",
+                            path: "gut-nutrition-metabolic/",
+                            children: [
+                                { name: "Food Intolerance", path: "food-intolerance/" },
+                                { name: "Allergy Testing", path: "allergy-testing/" },
+                                { name: "Gut Restoration Panels", path: "gut-restoration/" },
+                                { name: "Weight Loss & Fat Resistance Genetics", path: "fat-resistance-genetics/" },
+                                { name: "DEXA – Bone Density & Body Composition", path: "dexa-bone-density/" },
+                                { name: "DEXA for Patients with Implants", path: "dexa-implants/" },
+                                { name: "Metabolic Nutrition Plan", path: "metabolic-nutrition-plan/" },
+                                { name: "Vitamin & Mineral Levels", path: "vitamin-mineral-levels/" }
+                            ]
+                        },
+                        {
+                            name: "Immune & STD Infection",
+                            path: "immune-std-infection/",
+                            children: [
+                                { name: "STD/STI Panels", path: "std-panels/" },
+                                { name: "Immune Dysfunction & Chronic Viral Load", path: "immune-dysfunction/" },
+                                { name: "Opportunistic Infection Markers", path: "opportunistic-infections/" }
+                            ]
+                        },
+                        {
+                            name: "Long-COVID: Microclot & Inflammation",
+                            path: "long-covid/",
+                            children: [
+                                { name: "Blood Viscosity Panels", path: "blood-viscosity/" },
+                                { name: "Microclot Markers", path: "microclot-markers/" },
+                                { name: "Inflammation & Endothelial Damage Panels", path: "inflammation-damage/" }
+                            ]
+                        },
+                        {
+                            name: "Brain, Mood & Cognitive Function",
+                            path: "brain-mood-cognitive/",
+                            children: [
+                                { name: "Cognitive & Brain Performance Check", path: "brain-performance/" },
+                                { name: "Neuroinflammation & Mood Panel", path: "neuroinflammation-mood/" }
+                            ]
+                        },
+                        {
+                            name: "Advanced Diagnostics",
+                            path: "advanced-diagnostics/",
+                            children: [
+                                { name: "Full Body MRI", path: "full-body-mri/" },
+                                { name: "Colonoscopy (± Biopsy)", path: "colonoscopy/" },
+                                { name: "Endoscopy (± Biopsy)", path: "endoscopy/" },
+                                { name: "Dexa Scan", path: "dexa-scan/" },
+                                { name: "Calcium Scoring", path: "calcium-scoring/" }
+                            ]
+                        },
+                        {
+                            name: "Toxicology & Detox Panels",
+                            path: "toxicology-detox/",
+                            children: [
+                                { name: "Toxins & Heavy Metals", path: "toxins-heavy-metals/" },
+                                { name: "Detox & Liver Function", path: "detox-liver-function/" },
+                                { name: "Hydration & Renal Check", path: "hydration-renal/" },
+                                { name: "Prescription Drug Metabolism", path: "drug-metabolism/" },
+                                { name: "Workplace Drug & Substance Testing", path: "workplace-drug-testing/" }
+                            ]
+                        },
+                        {
+                            name: "Pediatric & Child Wellness",
+                            path: "pediatric-wellness/",
+                            children: [
+                                { name: "Pediatric Gut & Allergy", path: "gut-allergy/" },
+                                { name: "Newborn Screening Genetics", path: "newborn-genetics/" },
+                                { name: "ADHD & Neurodevelopment Risk", path: "adhd-risk/" }
+                            ]
+                        },
+                        {
+                            name: "Sleep & Recovery Assessment",
+                            path: "sleep-recovery/",
+                            children: [
+                                { name: "Sleep Cycle Diagnostics", path: "sleep-cycle/" },
+                                { name: "Oxidative Stress & Inflammation Markers", path: "oxidative-stress/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Get Treated",
+                    path: "get-treated/",
+                    description: "Treatment and therapy",
+                    children: [
+                        {
+                            name: "Regenerative Medicine",
+                            path: "regenerative-medicine/",
+                            children: [
+                                { name: "Stem Cell Therapy", path: "stem-cell-therapy/" },
+                                { name: "Exosome Therapy", path: "exosome-therapy/" },
+                                { name: "PRP for Hair, Skin & Joints", path: "prp-hair-skin-joints/" }
+                            ]
+                        },
+                        {
+                            name: "IV & Cellular Nutrition",
+                            path: "iv-cellular-nutrition/",
+                            children: [
+                                { name: "NAD, ATP & Glutathione IVs", path: "nad-atp-glutathione/" },
+                                { name: "Detox & Recovery Programs", path: "detox-recovery-programs/" }
+                            ]
+                        },
+                        {
+                            name: "Hormone Optimization",
+                            path: "hormone-optimization/",
+                            children: [
+                                { name: "Male TRT (Testosterone Replacement)", path: "male-trt/" },
+                                { name: "Female BHRT (Bioidentical Hormones)", path: "female-bhrt/" },
+                                { name: "Menopause Reset Therapy", path: "menopause-reset/" }
+                            ]
+                        },
+                        {
+                            name: "Chronic Disease Reversal",
+                            path: "chronic-disease-reversal/",
+                            children: [
+                                { name: "Diabetes Reversal", path: "diabetes-reversal/" },
+                                { name: "Metabolic Syndrome Fix", path: "metabolic-syndrome-fix/" },
+                                { name: "Heart Risk Reduction", path: "heart-risk-reduction/" },
+                                { name: "PCOS & Endocrine Reset", path: "pcos-endocrine-reset/" }
+                            ]
+                        },
+                        {
+                            name: "Gut Microbiome Restoration",
+                            path: "gut-microbiome-restoration/",
+                            children: [
+                                { name: "Gut Reset Protocol", path: "gut-reset-protocol/" },
+                                { name: "Parasite & Candida Cleanse", path: "parasite-candida-cleanse/" },
+                                { name: "Leaky Gut Repair", path: "leaky-gut-repair/" },
+                                { name: "Probiotic Rebalancing", path: "probiotic-rebalancing/" }
+                            ]
+                        },
+                        {
+                            name: "Mental Wellness & Sleep",
+                            path: "mental-wellness-sleep/",
+                            children: [
+                                { name: "Functional Psychiatry", path: "functional-psychiatry/" },
+                                { name: "Sleep Optimization", path: "sleep-optimization/" },
+                                { name: "Neuroplasticity Programs", path: "neuroplasticity-programs/" }
+                            ]
+                        },
+                        {
+                            name: "Weight Loss & Fat Burn",
+                            path: "weight-loss-fat-burn/",
+                            children: [
+                                { name: "GLP-1 Weight Loss Program", path: "glp1-program/" },
+                                { name: "Metabolic Activation Program", path: "metabolic-activation/" },
+                                { name: "Carnitine Fat Burn Therapy", path: "carnitine-fat-burn/" },
+                                { name: "Founder's Fasting Protocol", path: "founders-fasting-protocol/" }
+                            ]
+                        },
+                        {
+                            name: "Sexual Health & Fertility",
+                            path: "sexual-health-fertility/",
+                            children: [
+                                { name: "Male ED Protocols", path: "male-ed-protocols/" },
+                                { name: "Female PRP & Laser Therapy", path: "female-prp-laser/" },
+                                { name: "Fertility Optimization", path: "fertility-optimization/" }
+                            ]
+                        },
+                        {
+                            name: "Skin Rejuvenation & Anti-Aging",
+                            path: "skin-rejuvenation-antiaging/",
+                            children: [
+                                { name: "Exosome Facial Therapy", path: "exosome-facial-therapy/" },
+                                { name: "PRP Microneedling", path: "prp-microneedling/" },
+                                { name: "DNA-Based Skin Serums", path: "dna-skin-serums/" }
+                            ]
+                        },
+                        {
+                            name: "Heavy Metal Detox",
+                            path: "detox-heavy-metal/",
+                            children: [
+                                { name: "PFAS Detox Protocols", path: "pfas-protocols/" },
+                                { name: "Liver & Kidney Cleanse", path: "liver-kidney-cleanse/" },
+                                { name: "Chelation Therapy", path: "chelation-therapy/" },
+                                { name: "Plasma Exchange Therapy", path: "plasma-exchange/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Regenerate",
+                    path: "regenerate/",
+                    description: "Recovery and regeneration",
+                    children: [
+                        { name: "Founder's Fasting Protocol", path: "founders-fasting-protocol/" },
+                        { name: "Stem Cell Therapy", path: "stem-cell-therapy/" },
+                        { name: "Exosome Therapy", path: "exosome-therapy/" },
+                        {
+                            name: "Mitochondrial Reboot",
+                            path: "mitochondrial-reboot/",
+                            children: [
+                                { name: "NAD IV Therapy", path: "nad-iv/" },
+                                { name: "ATP Restoration", path: "atp-restoration/" },
+                                { name: "Mito Nutrition & Oxygen Therapy", path: "mito-nutrition-oxygen/" }
+                            ]
+                        },
+                        {
+                            name: "Anti-Aging Epigenetic Reset",
+                            path: "antiaging-epigenetic-reset/",
+                            children: [
+                                { name: "Methylation Reversal", path: "methylation-reversal/" },
+                                { name: "Telomere Support", path: "telomere-support/" },
+                                { name: "Peptide Therapy", path: "peptides/" },
+                                { name: "Rapamycin Cycling", path: "rapamycin-cycling/" }
+                            ]
+                        },
+                        {
+                            name: "Tissue & Joint Regeneration",
+                            path: "tissue-joint-regeneration/",
+                            children: [
+                                { name: "Sports Injury Recovery", path: "sports-injury-recovery/" },
+                                { name: "Spine, Disc & Cartilage Therapy", path: "spine-disc-cartilage-therapy/" }
+                            ]
+                        },
+                        {
+                            name: "Post-Illness Cellular Recovery",
+                            path: "post-illness-cellular-recovery/",
+                            children: [
+                                { name: "Long-COVID Recovery", path: "long-covid/" },
+                                { name: "Autoimmune Recovery", path: "autoimmune-recovery/" },
+                                { name: "Post-Chemotherapy Protocols", path: "post-chemo-protocols/" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Live Beyond 100",
+                    path: "live-beyond-100/",
+                    description: "Longevity and life extension",
+                    children: [
+                        { name: "Deep Diagnostics", path: "deep-diagnostics/" },
+                        { name: "Regenerative Interventions", path: "regenerative-interventions/" },
+                        { name: "Hormone & Lifestyle Reset", path: "hormone-lifestyle-reset/" },
+                        { name: "Biohacking Integration", path: "biohacking-integration/" }
+                    ]
+                },
+                {
+                    name: "GetChecked at Home",
+                    path: "getchecked-at-home/",
+                    description: "Home testing and services"
+                }
+            ]
+        };
+
+        let collapsedItems = new Set();
+        let totalPages = 0;
+        let maxDepth = 0;
+
+        function countPages(node, depth = 0) {
+            totalPages++;
+            maxDepth = Math.max(maxDepth, depth);
+            if (node.children) {
+                node.children.forEach(child => countPages(child, depth + 1));
+            }
+        }
+
+        function updateStats() {
+            countPages(siteStructure);
+            document.getElementById('total-pages').textContent = totalPages;
+            document.getElementById('main-sections').textContent = siteStructure.children.length;
+            document.getElementById('max-depth').textContent = maxDepth;
+            document.getElementById('visible-items').textContent = document.querySelectorAll('.tree-item:not(.hidden)').length;
+        }
+
+        function createTreeHTML(node, level = 0, parentPath = '') {
+            const fullPath = parentPath + node.path;
+            const hasChildren = node.children && node.children.length > 0;
+            const isCollapsed = collapsedItems.has(fullPath);
+            
+            let html = `<div class="tree-item level-${level}" data-path="${fullPath}" data-name="${node.name.toLowerCase()}">`;
+            
+            if (hasChildren) {
+                html += `<button class="tree-toggle ${isCollapsed ? 'collapsed' : ''}" onclick="toggleItem('${fullPath}')">▼</button>`;
+            } else {
+                html += '<span style="width: 20px; display: inline-block;"></span>';
+            }
+            
+            html += `<span class="tree-content">`;
+            html += `<span class="tree-name">${node.name}</span>`;
+            html += `<span class="tree-path"> – ${node.path}</span>`;
+            if (node.description) {
+                html += ` <span class="tree-description">(${node.description})</span>`;
+            }
+            html += `</span></div>`;
+            
+            if (hasChildren) {
+                html += `<div class="children ${isCollapsed ? 'collapsed' : ''}" id="children-${fullPath.replace(/[^a-zA-Z0-9]/g, '_')}">`;
+                node.children.forEach(child => {
+                    html += createTreeHTML(child, level + 1, fullPath);
+                });
+                html += '</div>';
+            }
+            
+            return html;
+        }
+
+        function toggleItem(path) {
+            const isCollapsed = collapsedItems.has(path);
+            const button = document.querySelector(`[data-path="${path}"] .tree-toggle`);
+            const children = document.getElementById(`children-${path.replace(/[^a-zA-Z0-9]/g, '_')}`);
+            
+            if (isCollapsed) {
+                collapsedItems.delete(path);
+                button.classList.remove('collapsed');
+                children.classList.remove('collapsed');
+            } else {
+                collapsedItems.add(path);
+                button.classList.add('collapsed');
+                children.classList.add('collapsed');
+            }
+            
+            updateStats();
+        }
+
+        function expandAll() {
+            collapsedItems.clear();
+            document.querySelectorAll('.tree-toggle').forEach(btn => btn.classList.remove('collapsed'));
+            document.querySelectorAll('.children').forEach(children => children.classList.remove('collapsed'));
+            updateStats();
+        }
+
+        function collapseAll() {
+            document.querySelectorAll('[data-path]').forEach(item => {
+                const path = item.dataset.path;
+                if (document.querySelector(`#children-${path.replace(/[^a-zA-Z0-9]/g, '_')}`)) {
+                    collapsedItems.add(path);
+                }
+            });
+            document.querySelectorAll('.tree-toggle').forEach(btn => btn.classList.add('collapsed'));
+            document.querySelectorAll('.children').forEach(children => children.classList.add('collapsed'));
+            updateStats();
+        }
+
+        function searchTree() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.tree-item');
+            
+            items.forEach(item => {
+                const name = item.dataset.name;
+                const path = item.dataset.path.toLowerCase();
+                
+                if (searchTerm === '' || name.includes(searchTerm) || path.includes(searchTerm)) {
+                    item.classList.remove('hidden');
+                    
+                    // Highlight matching text
+                    const nameElement = item.querySelector('.tree-name');
+                    const pathElement = item.querySelector('.tree-path');
+                    
+                    if (searchTerm !== '') {
+                        const nameText = nameElement.textContent;
+                        const pathText = pathElement.textContent;
+                        
+                        if (nameText.toLowerCase().includes(searchTerm)) {
+                            nameElement.innerHTML = nameText.replace(
+                                new RegExp(`(${searchTerm})`, 'gi'),
+                                '<span class="highlight">$1</span>'
+                            );
+                        }
+                        
+                        if (pathText.toLowerCase().includes(searchTerm)) {
+                            pathElement.innerHTML = pathText.replace(
+                                new RegExp(`(${searchTerm})`, 'gi'),
+                                '<span class="highlight">$1</span>'
+                            );
+                        }
+                    } else {
+                        // Reset highlighting
+                        nameElement.innerHTML = nameElement.textContent;
+                        pathElement.innerHTML = pathElement.textContent;
+                    }
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+            
+            updateStats();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('siteTree').innerHTML = createTreeHTML(siteStructure);
+            updateStats();
+            
+            document.getElementById('searchInput').addEventListener('input', searchTree);
+        });
+    </script>
 </body>
 </html>
