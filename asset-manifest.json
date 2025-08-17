@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/medical_website/static/js/main.82186bda.js",
+    "main.js": "/medical_website/static/js/main.c7787242.js",
     "index.html": "/medical_website/index.html",
-    "main.82186bda.js.map": "/medical_website/static/js/main.82186bda.js.map"
+    "main.c7787242.js.map": "/medical_website/static/js/main.c7787242.js.map"
   },
   "entrypoints": [
-    "static/js/main.82186bda.js"
+    "static/js/main.c7787242.js"
   ]
 }
