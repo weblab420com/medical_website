@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetChecked Clinic - Project Specification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .site-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .site-header .logo {
+            flex: 0 0 auto;
+        }
+
+        .site-header .logo img {
+            max-width: 150px;
+            height: auto;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .site-header .logo:hover img {
+            opacity: 0.7;
+        }
+
+        .site-header .contact-email {
+            flex: 0 0 auto;
+            font-size: 0.95em;
+            color: #4a5568;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .site-header .contact-email:hover {
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .nav-link:hover {
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-link.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #edf2f7;
+            color: #2d3748;
+            font-weight: 600;
+            padding: 15px 12px;
+            text-align: left;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #cbd5e0;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+            font-size: 0.9rem;
+            vertical-align: top;
+            background: white;
+        }
+
+        tr:hover td {
+            background: #f7fafc;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .template-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .template-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(240, 147, 251, 0.4);
+        }
+
+        .template-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .template-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .template-pages {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .section-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .section-item {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .section-item:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .section-count {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column;
+            padding: 20px;
+            text-align: center;
+                gap: 15px;
+            }
+
+            .site-header .logo img {
+                max-width: 120px;
+            }
+
+            .header-nav {
+                order: 2;
+            }
+
+            .contact-email {
+                order: 3;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card.full-width {
+                grid-column: span 1;
+            }
+
+            .template-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="logo_weblab.svg.svg" alt="WebLab Logo">
+        </div>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-link">Roadmap 2024</a>
+            <a href="index4.html" class="nav-link">Roadmap 2025</a>
+            <a href="index2.html" class="nav-link active">Pages</a>
+            <a href="index3.html" class="nav-link">Questions</a>
+        </nav>
+        <a href="mailto:mail@weblab420.com" class="contact-email">
+            mail@weblab420.com
+        </a>
+    </header>
+
+    <div class="container">
+        <!-- Detailed Page Structure -->
+        <div class="card full-width">
+            <h2>Detailed Page Structure</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Pages</th>
+                            <th>Count</th>
+                            <th>Template</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Main Pages</strong></td>
+                            <td>Home, About, Blog, Career, Contact</td>
+                            <td>5</td>
+                            <td>Templates #1-5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Services</strong></td>
+                            <td>Beauty, Genetic Testing, Men's Health, Women's Health, General Health, STD/STI Testing, IV Therapy, Diet & Nutrition, Sports Medicine, Lymphatic Drainage Massage, HPV, Vaccines & IV Medication, Corporate Wellness, Getchecked Rehab, Physiotherapy, Hijama Cupping Therapy</td>
+                            <td>16</td>
+                            <td>Template #6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blog Articles</strong></td>
+                            <td>Detoxifying with Glutathione, Navigating Sports Medicine, Exploring Genetic Testing, Hijama Therapy Benefits, Crafting Corporate Wellness, Therapeutic Impact of Lymphatic, Top Qualities to Look, Choosing the Right IV, Common STDs in Dubai</td>
+                            <td>9</td>
+                            <td>Template #7</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Genetic Testing</strong></td>
+                            <td>Methylation Panel, Micronutrient Panel, Getchecked NIPT, Nutrigene Health, Nutrigene Sports, NutriGene Plant Based, Heavy Metals, Total Tox Burden, Whole Blood Nutrient, Connective Tissue Disorder, Oxidative Stress Profile, Carrier Screening, Whole Exome Sequencing, Whole Genome Sequencing, Genetic Mutation</td>
+                            <td>15</td>
+                            <td>Template #8</td>
+                        </tr>
+                        <tr>
+                            <td><strong>STD/STI Testing</strong></td>
+                            <td>Single Test, Full Blood Testing, GC Exclusive 4 Pathogen 499, Incurable & Chronic STD/STI, 8 Pathogen, 13 Pathogen, 17 Pathogen, 21 Pathogen, 25 Pathogen, 28 Pathogen, GC Ultimate 36 Pathogen, GC Exclusive Elite Package 73 Pathogen, GC Exclusive Elite Package 85 Pathogen</td>
+                            <td>13</td>
+                            <td>Template #9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- WordPress Template Structure -->
+        <div class="card full-width">
+            <h2>WordPress Template Structure</h2>
+            <p style="color: #718096; margin-bottom: 25px;">9 custom templates designed to handle all 58 pages efficiently</p>
+            
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="template-number">Template #1</div>
+                    <div class="template-name">Home</div>
+                    <div class="template-pages">1 page</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #2</div>
+                    <div class="template-name">About</div>
+                    <div class="template-pages">1 page</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #3</div>
+                    <div class="template-name">Blog</div>
+                    <div class="template-pages">1 page</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #4</div>
+                    <div class="template-name">Career</div>
+                    <div class="template-pages">1 page</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #5</div>
+                    <div class="template-name">Contact</div>
+                    <div class="template-pages">1 page</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #6</div>
+                    <div class="template-name">Services</div>
+                    <div class="template-pages">16 pages</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #7</div>
+                    <div class="template-name">Blog Article</div>
+                    <div class="template-pages">9 pages</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #8</div>
+                    <div class="template-name">Genetic Testing</div>
+                    <div class="template-pages">15 pages</div>
+                </div>
+                <div class="template-card">
+                    <div class="template-number">Template #9</div>
+                    <div class="template-name">STD/STI Testing</div>
+                    <div class="template-pages">13 pages</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Site Structure -->
+        <div class="grid">
+            <div class="card">
+                <h2>Site Structure</h2>
+                <div class="section-breakdown">
+                    <div class="section-item">
+                        <div class="section-title">Main Pages</div>
+                        <div class="section-count">5</div>
+            </div>
+                                        <div class="section-item">
+                        <div class="section-title">Services</div>
+                        <div class="section-count">16</div>
+                    </div>
+                    <div class="section-item">
+                        <div class="section-title">Blog Articles</div>
+                        <div class="section-count">9</div>
+                </div>
+                    <div class="section-item">
+                        <div class="section-title">Genetic Testing</div>
+                        <div class="section-count">15</div>
+                </div>
+                    <div class="section-item">
+                        <div class="section-title">STD/STI Testing</div>
+                        <div class="section-count">13</div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

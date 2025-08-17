@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Questions - WebLab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .site-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .site-header .logo {
+            flex: 0 0 auto;
+        }
+
+        .site-header .logo img {
+            max-width: 150px;
+            height: auto;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .site-header .logo:hover img {
+            opacity: 0.7;
+        }
+
+        .site-header .contact-email {
+            flex: 0 0 auto;
+            font-size: 0.95em;
+            color: #4a5568;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .site-header .contact-email:hover {
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .nav-link:hover {
+            color: #2d3748;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-link.active {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: #718096;
+        }
+
+        .specialist-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .specialist-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .specialist-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .specialist-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .question-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .question-item:hover {
+            background: #edf2f7;
+            transform: translateX(5px);
+        }
+
+        .question-english {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .question-russian {
+            font-size: 1rem;
+            color: #4a5568;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .critical-question {
+            border-left-color: #e53e3e;
+            background: #fef5e7;
+        }
+
+        .critical-question:hover {
+            background: #fed7a7;
+        }
+
+        .critical-label {
+            display: inline-block;
+            background: #e53e3e;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .site-header .logo img {
+                max-width: 120px;
+            }
+
+            .header-nav {
+                order: 2;
+            }
+
+            .contact-email {
+                order: 3;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .specialist-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .question-english {
+                font-size: 1rem;
+            }
+
+            .question-russian {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="logo">
+            <img src="logo_weblab.svg.svg" alt="WebLab Logo">
+        </div>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-link">Roadmap 2024</a>
+            <a href="index4.html" class="nav-link">Roadmap 2025</a>
+            <a href="index2.html" class="nav-link">Pages</a>
+            <a href="index3.html" class="nav-link active">Questions</a>
+        </nav>
+        <a href="mailto:mail@weblab420.com" class="contact-email">
+            mail@weblab420.com
+        </a>
+    </header>
+
+    <div class="container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>Project Questions</h1>
+            <p>Essential questions to gather requirements from each specialist</p>
+        </div>
+
+        <!-- Project Manager Questions -->
+        <div class="specialist-section">
+            <h2 class="specialist-title">
+                <div class="specialist-icon">PM</div>
+                Project Manager
+            </h2>
+            
+            <div class="question-item">
+                <div class="question-english">How often do you plan project calls?</div>
+                <div class="question-russian">Как часто планируете созвоны по проекту?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">What days/times are convenient for presentations?</div>
+                <div class="question-russian">В какие дни/время удобно проводить презентации?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">How do you prefer to receive interim work results?</div>
+                <div class="question-russian">Как предпочитаете получать промежуточные результаты работы?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">What don't you like about your current website? (design, functionality, speed)</div>
+                <div class="question-russian">Что вам НЕ нравится в текущем сайте? (дизайн, функциональность, скорость)</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">What must be preserved from the existing website?</div>
+                <div class="question-russian">Что обязательно нужно сохранить из существующего сайта?</div>
+            </div>
+        </div>
+
+        <!-- Content Manager Questions -->
+        <div class="specialist-section">
+            <h2 class="specialist-title">
+                <div class="specialist-icon">CM</div>
+                Content Manager
+            </h2>
+
+            <div class="question-item">
+                <div class="question-english">What content from current site must be preserved?</div>
+                <div class="question-russian">Какой контент с текущего сайта нужно обязательно сохранить?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Are there texts that need to be completely rewritten?</div>
+                <div class="question-russian">Есть ли тексты, которые нужно полностью переписать?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Is all medical information on the site current?</div>
+                <div class="question-russian">Актуальна ли вся медицинская информация на сайте?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Who currently manages content on the site?</div>
+                <div class="question-russian">Кто сейчас отвечает за контент на сайте?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Who will approve new medical content?</div>
+                <div class="question-russian">Кто будет утверждать новый медицинский контент?</div>
+            </div>
+        </div>
+
+
+
+        <!-- SEO Specialist Questions -->
+        <div class="specialist-section">
+            <h2 class="specialist-title">
+                <div class="specialist-icon">SEO</div>
+                SEO Specialist / SEO Специалист
+            </h2>
+
+            <div class="question-item">
+                <div class="question-english">Can we get access to Google Analytics and Google Search Console?</div>
+                <div class="question-russian">Можем ли мы получить доступ к Google Analytics и Google Search Console?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Do you have any previous SEO reports and website audits saved?</div>
+                <div class="question-russian">Сохранились ли предыдущие отчеты по SEO и аудитам сайта?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Which service categories require special attention during website development and promotion?</div>
+                <div class="question-russian">Какие категории услуг требуют особого внимания при разработке и продвижении сайта?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Please provide a complete list of services that will be available at website launch.</div>
+                <div class="question-russian">Предоставьте, пожалуйста, полный список услуг, которые будут доступны при запуске сайта.</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Can we conduct short interviews with clinic doctors to prepare content for service pages and blog?</div>
+                <div class="question-russian">Можем ли мы провести короткие интервью с врачами клиники для подготовки контента страниц услуг и блога?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Do you need additional features: cost calculator, site search, personal account, etc.?</div>
+                <div class="question-russian">Нужны ли дополнительные функции: калькулятор стоимости, поиск по сайту, личный кабинет и т.д.?</div>
+            </div>
+
+            <div class="question-item">
+                <div class="question-english">Do you have clinic photos or other images for use on the website?</div>
+                <div class="question-russian">Есть ли у вас фотографии клиники или другие изображения для использования на сайте?</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
