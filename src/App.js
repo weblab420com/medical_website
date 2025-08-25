@@ -11,8 +11,11 @@ const ContentStrategyDashboard = () => {
       pages: [
         {
           id: 'page_0',
-          name: '1: Home Page',
+          name: 'Template 1: Home Page',
+          description: 'Global Page',
           icon: '🏠',
+          pageCount: 1,
+          totalWords: '~1,200',
           blocks: [
             { id: 'block_1_0', name: 'Hero Section', type: 'Headline + subtitle + CTA button', wordCount: '40–50', priority: 'high', icon: '🎯' },
             { id: 'block_1_1', name: 'Quick Navigation by Needs - Health Conditions Search', type: 'Browse tests by symptoms, risk factors, family history', wordCount: '50–60', priority: 'high', icon: '🧭' },
@@ -33,8 +36,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_1',
-          name: '2: About Page',
+          name: 'Template 2: About Page',
+          description: 'Global Page',
           icon: 'ℹ️',
+          pageCount: 1,
+          totalWords: '~900',
           blocks: [
             { id: 'block_2_0', name: 'Hero Section — Clinic Mission', type: 'Headline + short intro', wordCount: '50–60', priority: 'high', icon: '🎯' },
             { id: 'block_2_1', name: 'History & Foundation (Timeline)', type: 'Timeline blocks', wordCount: '100–110', priority: 'medium', icon: '📅' },
@@ -56,8 +62,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_2',
-          name: '3: Contact Page',
+          name: 'Template 3: Contact Page',
+          description: 'Global Page',
           icon: '📞',
+          pageCount: 1,
+          totalWords: '~500',
           blocks: [
             { id: 'block_3_0', name: 'Hero Section', type: 'Headline + short text', wordCount: '40–50', priority: 'high', icon: '🎯' },
             { id: 'block_3_1', name: 'Specialized Contact Form', type: 'Form + short intro', wordCount: '50–60', priority: 'high', icon: '📝' },
@@ -73,16 +82,22 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_3',
-          name: '4: Privacy Policy Page',
+          name: 'Template 4: Privacy Policy Page',
+          description: 'Global Page',
           icon: '⚖️',
+          pageCount: 1,
+          totalWords: '~1,200',
           blocks: [
             { id: 'block_4_0', name: 'Privacy Policy Text', type: 'Long-form legal text, structured with headings (H2/H3)', wordCount: '1,200–1,500', priority: 'low', icon: '⚖️' }
           ]
         },
         {
           id: 'page_4',
-          name: '5: GetChecked at Home',
+          name: 'Template 5: GetChecked at Home',
+          description: 'Global Page',
           icon: '🏠',
+          pageCount: 1,
+          totalWords: '~700',
           blocks: [
             { id: 'block_5_0', name: 'Hero Section – Main Offer', type: 'Headline + short intro + CTA', wordCount: '40–50', priority: 'high', icon: '🎯' },
             { id: 'block_5_1', name: 'Quick Service Selection', type: 'Icons + short text', wordCount: '40–50', priority: 'high', icon: '🧭' },
@@ -105,8 +120,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_5',
-          name: '6: Section Landing (L1)',
+          name: 'Template 6: Section Landing (L1)',
+          description: 'Top-level section pages that provide an overview, introductory content, and navigation to subcategories or individual services/programs. Optimized for broad, high-level search queries. Overview pages for Get Tested, Get Treated, Regenerate, Live Beyond 100',
           icon: '📄',
+          pageCount: 4,
+          totalWords: '~700',
           blocks: [
             { id: 'block_6_0', name: 'Hero Section', type: 'Headline + subtitle + CTA', wordCount: '40–50', priority: 'high', icon: '🎯' },
             { id: 'block_6_1', name: 'Section Overview', type: 'Intro text + sub-section highlights', wordCount: '120–150', priority: 'high', icon: '📝' },
@@ -122,8 +140,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_6',
-          name: '7: Get Tested — Category (L2)',
+          name: 'Template 7: Get Tested — Category (L2)',
+          description: 'Subpages under L1, each dedicated to a specific test category',
           icon: '🧪',
+          pageCount: 13,
+          totalWords: '~800',
           blocks: [
             { id: 'block_7_0', name: 'Testing Category Hero', type: 'Category intro + value prop + CTA + breadcrumbs', wordCount: '60–80', priority: 'high', icon: '🎯' },
             { id: 'block_7_1', name: 'Category Medical Overview', type: 'Clinical rationale, what tests detect', wordCount: '120–150', priority: 'high', icon: '📋' },
@@ -138,8 +159,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_7',
-          name: '8: Get Treated — Category (L2)',
+          name: 'Template 8: Get Treated — Category (L2)',
+          description: 'Subpages under L1, each dedicated to a specific treatment category',
           icon: '🏥',
+          pageCount: 10,
+          totalWords: '~800',
           blocks: [
             { id: 'block_8_0', name: 'Category Hero', type: 'Breadcrumbs, category title, value proposition, hero visual, call-to-action', wordCount: '70–80', priority: 'high', icon: '🎯' },
             { id: 'block_8_1', name: 'Category Overview', type: 'Philosophy, general approach, conditions addressed, scientific foundation, expected outcomes', wordCount: '100–110', priority: 'high', icon: '📝' },
@@ -157,8 +181,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_8',
-          name: '9: Regenerate — Category/Program (L2)',
+          name: 'Template 9: Regenerate — Category/Program (L2)',
+          description: 'Subpages under L1, each dedicated to regenerative protocols programs',
           icon: '🔄',
+          pageCount: 7,
+          totalWords: '~900',
           blocks: [
             { id: 'block_9_0', name: 'Program Hero', type: 'Intro with value proposition, visuals, CTA', wordCount: '60–70', priority: 'high', icon: '🎯' },
             { id: 'block_9_1', name: 'Program-Specific Science', type: 'Scientific basis, simplified, references', wordCount: '80–100', priority: 'high', icon: '🔬' },
@@ -183,8 +210,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_9',
-          name: '10: Live Beyond 100 — Program (L2)',
+          name: 'Template 10: Live Beyond 100 — Program (L2)',
+          description: 'Subpages under L1, each dedicated to longevity programs',
           icon: '💚',
+          pageCount: 4,
+          totalWords: '~900',
           blocks: [
             { id: 'block_10_0', name: 'Program Hero', type: 'Intro section with key value proposition, visuals, CTA', wordCount: '50–70', priority: 'high', icon: '🎯' },
             { id: 'block_10_1', name: 'Program-Specific Science', type: 'Scientific basis of this program, simplified explanations, references', wordCount: '90–110', priority: 'high', icon: '🔬' },
@@ -205,8 +235,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_10',
-          name: '11: Get Tested — Test Detail Template (L3)',
+          name: 'Template 11: Get Tested — Test Detail (L3)',
+          description: 'A level used for specific tests within an L2 page. Each L3 page has its own unique URL, allowing for detailed content, SEO targeting, and direct linking.',
           icon: '🧪',
+          pageCount: 58,
+          totalWords: '~900',
           blocks: [
             { id: 'block_11_0', name: 'Test Hero', type: 'Intro with breadcrumbs, test title, value proposition, key metrics (sample, TAT, price, accuracy, biomarkers), hero visual, primary CTA', wordCount: '60–80', priority: 'high', icon: '🎯' },
             { id: 'block_11_1', name: 'Test Overview', type: 'Clinical importance, what the test measures, actionable insights, scientific backing', wordCount: '100–120', priority: 'high', icon: '📝' },
@@ -228,8 +261,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_11',
-          name: '12: Get Treated — Treatment Detail Template (L3)',
+          name: 'Template 12: Get Treated — Treatment Detail (L3)',
+          description: 'A level used for specific treatments and procedures within an L2 page. Each L3 page has its own unique URL, allowing for detailed content, SEO targeting, and direct linking.',
           icon: '🏥',
+          pageCount: 33,
+          totalWords: '~1,100',
           blocks: [
             { id: 'block_12_0', name: 'Treatment Hero', type: 'Headline, subtitle, KPIs, hero visual, CTA', wordCount: '70–90', priority: 'high', icon: '🎯' },
             { id: 'block_12_1', name: 'Medical Indications & Conditions', type: 'Approved indications, candidates, exclusions', wordCount: '60–80', priority: 'high', icon: '🏥' },
@@ -254,8 +290,11 @@ const ContentStrategyDashboard = () => {
         },
         {
           id: 'page_12',
-          name: '13: Regenerate — Regenerative Protocol Detail (L3)',
+          name: 'Template 13: Regenerate — Regenerative Protocol Detail (L3)',
+          description: 'A level used for specific regenerative protocols within an L2 page. Each L3 page has its own unique URL, allowing for detailed content, SEO targeting, and direct linking.',
           icon: '🔄',
+          pageCount: 12,
+          totalWords: '~1,300',
           blocks: [
             { id: 'block_13_0', name: 'Protocol Hero', type: 'Intro with key value proposition, target metrics, visuals, CTA', wordCount: '80–100', priority: 'high', icon: '🎯' },
             { id: 'block_13_1', name: 'Molecular Mechanism of Action', type: 'Explanation of biological pathways, simplified diagrams, biomarker links', wordCount: '120–150', priority: 'high', icon: '🔬' },
@@ -276,7 +315,7 @@ const ContentStrategyDashboard = () => {
     };
 
     setDashboardData(realData);
-    setExpandedPages(new Set(['page_0'])); // Open home page by default
+    setExpandedPages(new Set(realData.pages.map(page => page.id))); // Open all pages by default
   }, []);
 
   const togglePageExpansion = (pageId) => {
@@ -323,24 +362,23 @@ const ContentStrategyDashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
       <div className="bg-white shadow-lg border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-white" />
-                </div>
-                GetChecked Clinic
-              </h1>
-              <p className="text-gray-600 mt-1">Content Strategy Dashboard</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="bg-green-50 px-4 py-2 rounded-lg border border-green-200">
-                <span className="text-green-700 font-semibold">13 Templates</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                <FileText className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <span className="text-gray-600 font-medium">SEO Priority:</span>
-                <div className="flex items-center gap-1">
+              <div>
+                <p className="text-sm sm:text-base text-gray-600 mt-1">Content Strategy Dashboard</p>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
+              <div className="bg-green-50 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-green-200 w-full sm:w-auto">
+                <span className="text-green-700 font-semibold text-sm sm:text-base">13 Templates</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <span className="text-gray-600 font-medium text-sm">SEO Priority:</span>
+                <div className="flex items-center gap-1 flex-wrap">
                   <span className="px-2 py-1 text-xs font-medium rounded-full border bg-red-100 text-red-800 border-red-200">high</span>
                   <span className="px-2 py-1 text-xs font-medium rounded-full border bg-yellow-100 text-yellow-800 border-yellow-200">medium</span>
                   <span className="px-2 py-1 text-xs font-medium rounded-full border bg-green-100 text-green-800 border-green-200">low</span>
@@ -351,13 +389,45 @@ const ContentStrategyDashboard = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        {/* Page Level Definitions */}
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 mb-6 sm:mb-8">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">Page Level Definitions</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <h4 className="font-semibold text-blue-900 mb-2">L1 - Category Pages</h4>
+              <p className="text-sm text-blue-800 leading-relaxed">
+                Top-level section pages that provide an overview, introductory content, and navigation to subcategories or individual services/programs. Optimized for broad, high-level search queries.
+              </p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-900 mb-2">L2 - Program / Service Pages</h4>
+              <p className="text-sm text-green-800 leading-relaxed">
+                Subpages under L1, each dedicated to a specific service, program, or offering. Contains full descriptions, images, calls-to-action, and SEO-focused content.
+              </p>
+            </div>
+            <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-purple-900 mb-2">L3 - Detailed Item Pages</h4>
+              <p className="text-sm text-purple-800 leading-relaxed">
+                An additional level used for specific items (tests, packages, procedures) within an L2 page. Each L3 page has its own unique URL, allowing for detailed content, SEO targeting, and direct linking.
+              </p>
+            </div>
+          </div>
+          <div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <h4 className="font-semibold text-gray-900 mb-2">Global Pages - Standalone</h4>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              Top-level pages that are not part of the L1-L3 service hierarchy but are essential for the overall site structure. They each have a unique URL and can be optimized for brand-related or informational search queries.
+            </p>
+          </div>
+        </div>
+
+
         {/* Control */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-8">
-          <div className="flex justify-end">
+        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 mb-6 sm:mb-8">
+          <div className="flex justify-center">
             <button
               onClick={toggleAllPages}
-              className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
             >
               {expandedPages.size === dashboardData?.pages?.length ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               {expandedPages.size === dashboardData?.pages?.length ? 'Collapse All' : 'Expand All'}
@@ -366,54 +436,66 @@ const ContentStrategyDashboard = () => {
         </div>
 
         {/* Pages */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {filteredPages.map((page) => (
             <div key={page.id} className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
               <div 
-                className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                className="flex items-start justify-between p-4 sm:p-6 cursor-pointer hover:bg-gray-50 transition-colors min-h-[80px] sm:min-h-0"
                 onClick={() => togglePageExpansion(page.id)}
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-xl">
+                <div className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center text-white text-lg sm:text-xl flex-shrink-0 mt-1">
                     {page.icon}
                   </div>
-                  <div>
-                    <h2 className="text-xl font-bold text-gray-900">{page.name}</h2>
-                    <p className="text-gray-600">{page.blocks.length} content blocks</p>
+                  <div className="min-w-0 flex-1">
+                    <h2 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 leading-tight">{page.name}</h2>
+                    {page.description && (
+                      <p className="text-xs sm:text-sm text-blue-600 mt-1 leading-tight">{page.description}</p>
+                    )}
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-                    <span className="text-blue-700 text-sm font-medium">{page.blocks.length} blocks</span>
+                <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-3 flex-shrink-0 mt-1">
+                  <div className="bg-blue-50 px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-blue-200">
+                    <span className="text-blue-700 text-xs sm:text-sm font-medium">{page.blocks.length} blocks</span>
                   </div>
+                  {page.pageCount && (
+                    <div className="bg-green-50 px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-green-200">
+                      <span className="text-green-700 text-xs sm:text-sm font-medium">{page.pageCount} pages</span>
+                    </div>
+                  )}
+                  {page.totalWords && (
+                    <div className="bg-purple-50 px-2 py-1 sm:px-3 sm:py-1 rounded-full border border-purple-200">
+                      <span className="text-purple-700 text-xs sm:text-sm font-medium">{page.totalWords} words</span>
+                    </div>
+                  )}
                   {expandedPages.has(page.id) ? 
-                    <ChevronDown className="w-6 h-6 text-gray-400" /> : 
-                    <ChevronRight className="w-6 h-6 text-gray-400" />
+                    <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" /> : 
+                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />
                   }
                 </div>
               </div>
 
               {expandedPages.has(page.id) && (
-                <div className="border-t border-gray-200 p-6 bg-gray-50">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="border-t border-gray-200 p-4 sm:p-6 bg-gray-50">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     {page.blocks.map((block) => (
-                      <div key={block.id} className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-all">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex items-center gap-2">
-                            <span className="text-lg">{block.icon}</span>
-                            <h3 className="font-semibold text-gray-900 text-sm leading-tight">{block.name}</h3>
+                      <div key={block.id} className="bg-white rounded-lg border border-gray-200 p-3 sm:p-4 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-2 sm:mb-3">
+                          <div className="flex items-start gap-2 flex-1 min-w-0">
+                            <span className="text-base sm:text-lg flex-shrink-0">{block.icon}</span>
+                            <h3 className="font-semibold text-gray-900 text-xs sm:text-sm leading-tight">{block.name}</h3>
                           </div>
                           {block.priority && (
-                            <span className={`px-2 py-1 text-xs font-medium rounded-full border ${getPriorityColor(block.priority)}`}>
+                            <span className={`px-1.5 py-0.5 sm:px-2 sm:py-1 text-xs font-medium rounded-full border ${getPriorityColor(block.priority)} flex-shrink-0 ml-2`}>
                               {block.priority}
                             </span>
                           )}
                         </div>
-                        <p className="text-gray-600 text-sm mb-2">{block.type}</p>
+                        <p className="text-gray-600 text-xs sm:text-sm mb-2 leading-relaxed">{block.type}</p>
                         {block.wordCount && (
                           <div className="flex items-center gap-1 text-xs text-gray-500">
-                            <BarChart3 className="w-3 h-3" />
-                            {block.wordCount} words
+                            <BarChart3 className="w-3 h-3 flex-shrink-0" />
+                            <span>{block.wordCount} words</span>
                           </div>
                         )}
                       </div>
@@ -426,9 +508,8 @@ const ContentStrategyDashboard = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-12 text-center text-gray-500">
-          <p>GetChecked Clinic Content Strategy Dashboard</p>
-          <p className="text-sm mt-1">Total of {dashboardData.totalBlocks} content blocks across {dashboardData.pages.length} pages</p>
+        <div className="mt-8 sm:mt-12 text-center text-gray-500 px-4">
+          <p className="text-sm sm:text-base">Content Strategy Dashboard</p>
         </div>
       </div>
     </div>
