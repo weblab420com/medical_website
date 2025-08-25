@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, ChevronRight, Eye, EyeOff, BarChart3, FileText } from 'lucide-react';
+import { ChevronDown, ChevronRight, BarChart3, FileText } from 'lucide-react';
 
 const ContentStrategyDashboard = () => {
   const [expandedPages, setExpandedPages] = useState(new Set(['template_1']));
@@ -328,13 +328,7 @@ const ContentStrategyDashboard = () => {
     setExpandedPages(newExpanded);
   };
 
-  const toggleAllPages = () => {
-    if (expandedPages.size === dashboardData?.pages?.length) {
-      setExpandedPages(new Set());
-    } else {
-      setExpandedPages(new Set(dashboardData?.pages?.map(page => page.id) || []));
-    }
-  };
+
 
   const getPriorityColor = (priority) => {
     switch (priority) {
@@ -422,18 +416,7 @@ const ContentStrategyDashboard = () => {
         </div>
 
 
-        {/* Control */}
-        <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4 sm:p-6 mb-6 sm:mb-8">
-          <div className="flex justify-center">
-            <button
-              onClick={toggleAllPages}
-              className="flex items-center gap-2 px-4 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base w-full sm:w-auto justify-center"
-            >
-              {expandedPages.size === dashboardData?.pages?.length ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-              {expandedPages.size === dashboardData?.pages?.length ? 'Collapse All' : 'Expand All'}
-            </button>
-          </div>
-        </div>
+
 
         {/* Pages */}
         <div className="space-y-4 sm:space-y-6">
